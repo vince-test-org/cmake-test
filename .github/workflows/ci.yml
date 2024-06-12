@@ -48,7 +48,7 @@ jobs:
             -G Ninja \
             -DCMAKE_BUILD_TYPE=${{ matrix.config.build_type }} \
             -DCMAKE_CXX_STANDARD=${{ matrix.config.cppstd }}
-          make -j2
+          ninja -C . -j2
 
   build_osx:
     runs-on: macOS-latest
@@ -63,4 +63,4 @@ jobs:
             -G Ninja \
             -DCMAKE_BUILD_TYPE=Release \
             -DCMAKE_CXX_STANDARD=11
-          make -j2
+          ninja -C . -j2
