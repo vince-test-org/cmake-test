@@ -36,7 +36,7 @@ jobs:
         if: matrix.config.compiler == 'clang'
         run: |
           if [[ "${{ matrix.config.version }}" -ge 4 ]]; then
-            scripts/ci_setup_clang.sh "${{ matrix.config.version }}"
+            .github/ci_setup_clang.sh "${{ matrix.config.version }}"
             echo "CXXFLAGS=-stdlib=libc++" >> $GITHUB_ENV
           fi
           echo "CC=clang-${{ matrix.config.version }}" >> $GITHUB_ENV
