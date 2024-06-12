@@ -27,7 +27,7 @@ jobs:
       - name: Setup
         run: |
           apt-get update
-          apt-get install -y curl git pkg-config libsystemd-dev
+          apt-get install -y curl git pkg-config libsystemd-dev ninja-build
           CMAKE_VERSION="3.29.5"
           curl -sSL https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-linux-x86_64.sh -o install-cmake.sh
           chmod +x install-cmake.sh
@@ -55,6 +55,7 @@ jobs:
     name: "OS X Clang (C++11, Release, arm64)"
     steps:
       - uses: actions/checkout@main
+      - run: brew install ninja
       - name: Build
         run: |
           mkdir -p build && cd build
